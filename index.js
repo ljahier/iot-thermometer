@@ -11,9 +11,6 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.get('/', (req, res) => {
-    fs.readFile('./index.html', (err, data) => {
-        res.end(data);
-    });
 
 })
 
@@ -24,7 +21,7 @@ app.get('/post/:data', (req, res) => {
     res.end(req.params.data)
 })
 
-app.post('/post/:data', (req, res) => {
+app.get('/post/:data', (req, res) => {
     fs.writeFile('message.txt', req.params.data, (err) => {
         console.log('The file has been saved!');
     });
