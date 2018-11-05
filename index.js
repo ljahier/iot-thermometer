@@ -14,8 +14,20 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        username: "Lucas"
+    fs.readFile('message.txt', (err, data) => {
+        if (err) throw err;
+        res.render('index', {
+            data: data
+        })
+    })
+})
+
+app.get('/post', (req, res) => {
+    fs.readFile('message.txt', (err, data) => {
+        if (err) throw err;
+        res.render('index', {
+            data: data
+        })
     })
 })
 
@@ -29,7 +41,6 @@ app.get('/post/:data', (req, res) => {
         })
         console.log('The file has been saved!');
     });
-    res.end(req.params.data)
 })
 
 app.listen(port, () => {
