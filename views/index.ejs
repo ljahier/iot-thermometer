@@ -5,8 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Thermometer</title>
+        <style>
+            .temperature {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
-        <h1><%= data %></h1>
+        <h1 class="temperature">La température est de <%= data %> °C</h1>
     </body>
 </html>

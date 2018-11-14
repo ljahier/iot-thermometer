@@ -35,9 +35,7 @@ app.get('/post/:data', (req, res) => {
     fs.writeFile('message.txt', req.params.data, (err) => {
         fs.readFile('message.txt', (err, data) => {
             if (err) throw err;
-            res.render('index', {
-                data: data
-            })
+            res.redirect('http://sin.lucasjahier.fr/');
         })
         console.log('The file has been saved!');
     });
