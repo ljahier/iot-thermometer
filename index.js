@@ -41,6 +41,16 @@ app.get('/post/:data', (req, res) => {
     });
 })
 
+app.post('/post/:data', (req, res) => {
+    fs.writeFile('message.txt', req.params.data, (err) => {
+        fs.readFile('message.txt', (err, data) => {
+            if (err) throw err;
+            res.redirect('http://sin.lucasjahier.fr/');
+        })
+        console.log('The file has been saved!');
+    });
+})
+
 app.listen(port, () => {
     console.log(`Server running on localhost:${port}`);
 });
